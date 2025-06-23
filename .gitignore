@@ -1,1 +1,3 @@
 __pycache__/
+# Ignore the generated resource allocation graph image
+rag_graph.png
