@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 class DeadlockBackend:
     def __init__(self):
-        # Your original __init__ method
+        # original __init__ method
         self.process_names = []
         self.resource_names = []
         self.process_count = 0
@@ -13,11 +13,11 @@ class DeadlockBackend:
         self.max_need = []
         self.available = []
         self.terminated = []
-        # Added to store deadlock detection results for the graph
+        # store result
         self.deadlocked_indices = []
 
     def setup(self, process_names, resource_names, allocation, max_need, available):
-        # Your original setup method
+        # setup
         self.process_names = process_names
         self.resource_names = resource_names
         self.process_count = len(process_names)
@@ -29,11 +29,9 @@ class DeadlockBackend:
         self.deadlocked_indices = []
 
     def get_need(self):
-        # Your original get_need method
         return [[self.max_need[i][j] - self.allocation[i][j] for j in range(self.resource_count)] for i in range(self.process_count)]
 
     def detect_deadlock(self):
-        # Your original detect_deadlock method
         n, m = self.process_count, self.resource_count
         allocation = self.allocation
         need = self.get_need()
@@ -58,7 +56,6 @@ class DeadlockBackend:
         return (deadlocked if deadlocked else None), safe_seq
 
     def kill_process(self, pname):
-        # Your original kill_process method
         idx = self.process_names.index(pname)
         for j in range(self.resource_count):
             self.available[j] += self.allocation[idx][j]
@@ -66,7 +63,6 @@ class DeadlockBackend:
             self.max_need[idx][j] = 0
         self.terminated[idx] = True
 
-    # --- NEW APPENDED METHODS ---
 
     def auto_recover(self):
         """

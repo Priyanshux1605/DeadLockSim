@@ -6,14 +6,14 @@ from PIL import Image
 from deadlock_backend import DeadlockBackend
 import os
 
-# This class inherits from your original GUI class logic
+# This class inherits from  original GUI class logic
 class DeadlockSimulatorGUI:
     def __init__(self, root):
         self.root = root
         self.backend = DeadlockBackend()
         self.rag_image_tk = None # To hold a reference to the graph image
 
-    # This method displays your stylish start screen
+    # This method displays stylish start screen
     def show_start_screen(self):
         self.clear_frame()
         self.root.geometry("1000x600")
@@ -24,8 +24,6 @@ class DeadlockSimulatorGUI:
         ctk.CTkButton(self.root, text="🚀 START", font=("Segoe UI", 18, "bold"), corner_radius=32, fg_color="purple", hover_color="#5E17EB", command=self.init_gui).place(relx=0.5, rely=0.5, anchor="center")
         ctk.CTkButton(self.root, text="ℹ️ About", command=self.show_about, width=100).place(relx=0.95, rely=0.95, anchor="se")
 
-    # The rest of the methods are from your original GUI, slightly adapted
-    # to fit the new flow and features.
     def init_gui(self):
         self.clear_frame()
         ctk.CTkLabel(self.root, text="Deadlock Simulator", font=("Arial", 24, "bold")).pack(pady=20)
